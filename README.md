@@ -11,6 +11,12 @@ understand a limited array of commands (jaycommand.cpp)
 
 So far, only strings and integers are supported as data types.
 
+Also, order of operations is not supported. You have to use parentheses for now.
+
+For example, you can't do x < 3 AND y < 5, as of now, you have to do 
+
+(x < 3) AND (y < 5)
+
 Commands supported as of now, with syntax:
 
 SET [variable_name] [value] where value can be either an integer or string
@@ -41,3 +47,7 @@ TO DO:
 -Implement comments
 
 -Implement functions, keyword: FUNCTION
+
+-Implement order of operations
+
+
