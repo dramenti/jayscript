@@ -1,1 +1,0 @@
-g++ main.o jaycommand.o jayparse.o jaylexer.o jaytools.o -o jayrun
