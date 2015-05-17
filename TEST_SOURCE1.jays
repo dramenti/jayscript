@@ -1,0 +1,5 @@
+SET x 372+(3*2)
+SET y x-370
+SET x y+(3*7)-(4-2)
+PRINT "The value of x is %x%"
+PRINT "The value of y is %y%"
