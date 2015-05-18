@@ -50,6 +50,26 @@ void set(std::istringstream& line)
     }
 }
 
+void input(std::istringstream& line)
+{
+    std::string identifier;
+    std::getline(line, identifier, ' ');
+    assert(is_Valid_Identifier(identifier));
+    
+    std::string input_line;
+    std::getline(std::cin, input_line);
+    result to_input = do_eval(lex(input_line));
+    if (to_input.type == 0) //INTEGER
+    {
+        var_ints[identifier] = convert_int_to_string(to_input.integer);
+        //std::cout << "In set, just set " << identifier << " to " << var_ints[identifier] << std::endl;
+    }
+    else if (to_input.type == 1) //STRING
+    {
+        var_strings[identifier] = to_input.str;
+    }
+}
+
 void find_command(std::string& command, std::istringstream& rest_of_line)
 {
     if (command == "PRINT")
@@ -62,9 +82,13 @@ void find_command(std::string& command, std::istringstream& rest_of_line)
     {
         set(rest_of_line);
     }
+    else if (command == "INPUT")
+    {
+        input(rest_of_line);
+    }
     else
     {
-        std::cout << "Command not recognized!" << std::endl;
+        std::cout << "Command " << command << " not recognized!" << std::endl;
     }
 }
 
