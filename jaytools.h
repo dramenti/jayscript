@@ -1,3 +1,8 @@
+/*
+jaytools contains various tools that other files in the program
+will find useful. Most of these are bool functions that check if something
+is valid. Also includes conversion functions
+*/
 #include "globals.h"
 #include<string>
 #ifndef JAYTOOLS_H

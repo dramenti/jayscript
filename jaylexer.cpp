@@ -18,7 +18,7 @@ std::deque<std::string> lex (std::string& line)
     std::string next_token;
     bool hyphen_is_negative = true;
     int i = 0;
-    std::cout << "In lex, about to tokenize integer expression: " << line << std::endl;
+    //std::cout << "In lex, about to tokenize integer expression: " << line << std::endl;
     while(i < line.size())
     {
         if (line.at(i) == ' ' || line.at(i) == '\t')
@@ -31,9 +31,9 @@ std::deque<std::string> lex (std::string& line)
         /*Deals with integer literal tokens*/
         if (is_num(line.substr(i, 1)) || (line.at(i) == '-' && hyphen_is_negative))
         {
-            std::cout << "In lex, in if statement to tokenize integer literal" << std::endl;
+            //std::cout << "In lex, in if statement to tokenize integer literal" << std::endl;
             next_token += line.at(i);
-            std::cout << "In lex, began tokenizing integer literal, next_token is: " << next_token << std::endl;
+            //std::cout << "In lex, began tokenizing integer literal, next_token is: " << next_token << std::endl;
             i++;
             while (i < line.size() && is_num(line.substr(i,1)))
             {
@@ -87,7 +87,7 @@ std::deque<std::string> lex (std::string& line)
                 hyphen_is_negative = false;
             }
         }
-        std::cout << "In lex, next_token is: " << next_token << std::endl;
+        //std::cout << "In lex, next_token is: " << next_token << std::endl;
         expression.push_back(next_token);
     }
     return expression;

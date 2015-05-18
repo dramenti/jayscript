@@ -11,7 +11,7 @@
 
 void print(std::string& line)
 {
-    std::cout << "in void print with string: " << line << std::endl;
+    //std::cout << "in void print with string: " << line << std::endl;
     result to_print = do_eval(lex(line));
     if (to_print.type == 0)
     {
@@ -32,17 +32,17 @@ void set(std::istringstream& line)
     std::string identifier;
     std::getline(line, identifier, ' ');
     assert(is_Valid_Identifier(identifier));
-    std::cout << "In set, attempting to set a value to the variable: " << identifier << std::endl;
+    //std::cout << "In set, attempting to set a value to the variable: " << identifier << std::endl;
     
     std::string rol; //rest of line
     std::getline(line, rol); //store rest of line 
-    std::cout << "In set, will set variable equal to: " << rol << std::endl;
+    //std::cout << "In set, will set variable equal to: " << rol << std::endl;
     
     result to_set = do_eval(lex(rol));
     if (to_set.type == 0) //INTEGER
     {
         var_ints[identifier] = convert_int_to_string(to_set.integer);
-        std::cout << "In set, just set " << identifier << " to " << var_ints[identifier] << std::endl;
+        //std::cout << "In set, just set " << identifier << " to " << var_ints[identifier] << std::endl;
     }
     else if (to_set.type == 1) //STRING
     {
@@ -84,7 +84,7 @@ void run_line(std::istringstream& full_line)
     //std::cout << "In run_line with full_line fail state: " << full_line.fail() << std::endl;
     std::string command = "";
     std::getline(full_line, command, ' '); //stop at space
-    std::cout << "In run_line with command: " << command << std::endl;
+    //std::cout << "In run_line with command: " << command << std::endl;
     //now command contains the command, like PRINT or SET
     //full_line is now left with the argument(s) of the command
     find_command(command, full_line);

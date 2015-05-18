@@ -12,6 +12,10 @@
 };*/
 
 
+/*Applies the infix operator op on a and b
+For example if op is "+" then operate(a,b,op)
+will return the quantity a+b
+*/
 int operate(int a, int b, std::string op)
 {
     char opchar = opMapping[op];
@@ -67,6 +71,10 @@ T eval_expression(std::deque<std::string> expression)
     Just some generic stuff
     */
 }
+
+/*
+Evaluates a string
+*/
 
 template<>
 std::string eval_expression<std::string>(std::deque<std::string> expression)

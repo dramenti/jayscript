@@ -49,13 +49,16 @@ int main(int argc, char* argv[]) //command line arguments. argv is arguments
     
     std::string each_line;
     std::istringstream full_line;
+    
+    
+    /*Read from file, line by line*/
     while (std::getline(prog_file, each_line))
     {
         full_line.str(each_line);
         try
         {
-            std::cout << "In main, will run line: "<< each_line << std::endl;
-            run_line(full_line);
+            //std::cout << "In main, will run line: "<< each_line << std::endl;
+            run_line(full_line); //execute the line
         }
         catch (std::exception& e)
         {
