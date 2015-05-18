@@ -26,6 +26,8 @@ SET [variable_name] [value] where value can be either an integer or string
 
 PRINT [string]
 
+INPUT [variable_name] NOTE: as of now, strings typed in need to be in quotes because INPUT evaluates the expression entered
+
 Example code:
 
 SET x 50    
