@@ -1,4 +1,4 @@
-So basically this is Jayscript, a scripting language I made.
+So basically this is Jayscript, an interpreted scripting language I made.
 It is in the very early stages, and cannot do much yet.
 
 Note that this is a personal project, intended as a learning experience for myself, not for practical use!
