@@ -22,7 +22,7 @@ For example, you can't do x < 3 AND y < 5, as of now, you have to do
 
 Commands supported as of now, with syntax:
 
-SET [variable_name] [value] where value can be either an integer or string
+SET [variable_name] = [value] where value can be either an integer or string
 
 PRINT [string]
 
@@ -30,9 +30,9 @@ INPUT [variable_name] NOTE: as of now, strings typed in need to be in quotes bec
 
 Example code:
 
-SET x 50    
+SET x = 50    
 
-SET y x+(3*2)
+SET y = x+(3*2)
 
 PRINT "The value of y is %y%"
 
@@ -52,6 +52,8 @@ TO DO:
 -Implement comments
 
 -Implement functions, keyword: FUNCTION
+
+-Implement arrays
 
 -Implement order of operations
 

@@ -1,4 +1,8 @@
 PRINT "Hello World!"
-SET x 50
-SET y x+(3*2)
-PRINT "The value of y is %y%"
+SET x = 50
+SET y = x+(3*2)
+PRINT "The value of x is %x% and the value of y is %y%"
+SET z = 10/-2
+PRINT "The value of z is %z%"
+SET sum = x+y+z
+PRINT "The value of the x+y+z is %sum%"

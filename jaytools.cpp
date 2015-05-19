@@ -172,3 +172,24 @@ bool is_Valid_Identifier(std::string id)
     }
     return true;
 }
+
+void trim_tail(std::string& s)
+{
+    int index = s.size()-1;
+    while (index >= 0)
+    {
+        if (s.at(index) == ' ' || s.at(index) == '\t')
+        {
+            index--;
+        }
+        else
+        {
+            break;
+        }
+    }
+    //loop has broken: index is now location of last nonspace character
+    //the substring from 0 to index is our final result
+    //substring argument is (0, length) 
+    //length = index+1
+    s = s.substr(0, index+1);
+}

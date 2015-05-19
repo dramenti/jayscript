@@ -1,5 +1,6 @@
 #include<deque>
 #include<string>
+#include<iostream>
 #include "globals.h"
 #include "jaytools.h"
 #include "jayparse.h"
@@ -120,41 +121,42 @@ template<>
 int eval_expression<int>(std::deque<std::string> expression)
 {
     std::string op;
-    std::string token1 = expression.at(0); //the first token in the expression
-    expression.pop_front();
-    if (token1 == "(")
+    std::string token1 = expression.at(expression.size()-1); //the last token in the expression
+    expression.pop_back();
+    if (token1 == ")")
     {
+        //std::cout << "found paren\n";
         std::deque<std::string> unprocessed;
-        int i = 0;
         int nest = 1;
-        while (true) //until expression is ) and nest is 0
+        while (true) //until expression is ( and nest is 0
         {
-            if (expression.at(i) == "(")
+            if (expression.at(expression.size()-1) == ")")
             {
                 nest++;
             }
-            else if (expression.at(i) == ")")
+            else if (expression.at(expression.size()-1) == "(")
             {
+                //std::cout << "found end\n";
                 nest--;
                 if (nest == 0)
                 {
-                    expression.pop_front(); //removes the )
+                    expression.pop_back(); //removes the (
                     break;
                 }
             }
-            unprocessed.push_back(expression.at(i));
-            expression.pop_front();
+            unprocessed.push_front(expression.at(expression.size()-1));
+            expression.pop_back();
         }
         //now unprocessed contains everything in parentheses
         //next token SHOULD be an operator OR nothing (reached end of parsing)
-        if (expression.size() == 0) //nothing past the )
+        if (expression.size() == 0) //nothing past the (
         {
             return eval_expression<int>(unprocessed);
         }
         //otherwise next MUST be an operator
-        op = expression.at(0);
-        expression.pop_front();
-        return operate(eval_expression<int>(unprocessed), eval_expression<int>(expression), op);
+        op = expression.at(expression.size()-1);
+        expression.pop_back();
+        return operate(eval_expression<int>(expression), eval_expression<int>(unprocessed), op);
     }
     
     int real_tk1;
@@ -170,9 +172,9 @@ int eval_expression<int>(std::deque<std::string> expression)
     
     if (expression.size() == 0) return real_tk1;
     //otherwise the next token must be an operator!
-    op = expression.at(0);
-    expression.pop_front();
-    return operate(real_tk1, eval_expression<int>(expression), op);
+    op = expression.at(expression.size()-1);
+    expression.pop_back();
+    return operate(eval_expression<int>(expression), real_tk1, op);
 }
 
 result do_eval(std::deque<std::string> expression)

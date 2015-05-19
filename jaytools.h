@@ -28,4 +28,6 @@ bool is_IdentifierChar(char c);
 
 bool is_Valid_Identifier(std::string id);
 
+void trim_tail(std::string& s);
+
 #endif

@@ -61,7 +61,7 @@ std::deque<std::string> lex (std::string& line)
         {
             next_token += line.at(i);
             i++;
-            while (i < line.size() && is_OpChar(line.at(i)))
+            while (i < line.size() && is_OpChar(line.at(i)) && line.at(i) != '-')
             {
                 next_token += line.at(i);
                 i++;

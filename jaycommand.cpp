@@ -8,6 +8,7 @@
 #include "jayparse.h"
 #include "jaycommand.h"
 #include "jaytools.h"
+#include "jayblocks.h"
 
 void print(std::string& line)
 {
@@ -30,7 +31,9 @@ void print(std::string& line)
 void set(std::istringstream& line)
 {
     std::string identifier;
-    std::getline(line, identifier, ' ');
+    std::getline(line, identifier, '=');
+    //trim trailing space
+    trim_tail(identifier);
     assert(is_Valid_Identifier(identifier));
     //std::cout << "In set, attempting to set a value to the variable: " << identifier << std::endl;
     
@@ -69,6 +72,20 @@ void input(std::istringstream& line)
         var_strings[identifier] = to_input.str;
     }
 }
+
+
+/*void flow_if(std::istringstream& line)
+{
+    //note: right now line contains everything after "IF" -- the expression
+    If_Flow fl; //creates a new If_Flow, will consist of If Block plus optional Elsifs
+    //and possibly an Else block
+    //first, it stores the entire if block, and all elsifs, and the else, up to END
+    //reads next line, until line no longer begins with 4 spaces or tab \t
+    //while reading, lines are added to the block with the tab OR 4 spaces stripped off
+    std::getline(f1.IB_exp); //rest of line is the IF expression
+    
+    //now, store into block while lines begin with 4 spaces or tabs
+}*/
 
 void find_command(std::string& command, std::istringstream& rest_of_line)
 {
