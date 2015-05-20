@@ -1,5 +1,4 @@
-So basically this is Jayscript, an interpreted scripting language I made.
-It is in the very early stages, and cannot do much yet.
+So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
 Note that this is a personal project, intended as a learning experience for myself, not for practical use!
 Though perhaps someday in the future this will become more practical.
