@@ -9,7 +9,7 @@ tokenize expressions (jaylexer.cpp)
 
 parse basic strings and evaluate arithmetic expressions (jayparse.cpp)
 
-understand a limited array of commands (jaycommand.cpp)
+understand a limited number of commands (jaycommand.cpp)
 
 
 So far, only strings and integers are supported as data types.
