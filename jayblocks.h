@@ -20,7 +20,8 @@ struct If_Flow
     std::vector<std::string> EIB_exps;
     
     CodeBlock Else_Block;
-    std::string ELSE_exp;
+    
+    int line_of_END;
 };
 
 

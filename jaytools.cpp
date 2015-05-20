@@ -1,5 +1,6 @@
 #include "globals.h"
 #include<string>
+#include<exception>
 #include "jaytools.h"
 #define ASCII_SHIFT 48
 
@@ -192,4 +193,45 @@ void trim_tail(std::string& s)
     //substring argument is (0, length) 
     //length = index+1
     s = s.substr(0, index+1);
+}
+
+//returns whether the line begins with lvl number of tabs or soft tabs
+bool begins_with_tab(const std::string& s, int lvl)
+{
+    const std::string SOFT = "    "; //FOUR SPACES AKA SOFT TAB
+    const char HARD = '\t'; //TABSPACE
+    try
+    {
+        bool yesbegin = false; 
+        int k = 0;
+        while (k < lvl)
+        {
+            yesbegin = true; //so far it looks ok...
+            if (s.at(k) != HARD) //not a hard tab...
+            {
+                yesbegin = false;  //so false for now
+                break; //exit
+            }
+            k++;
+        }
+        if (yesbegin) return yesbegin; //if we didn't break, return true
+        
+        //now do soft check
+        k = 0;
+        while (k < lvl)
+        {
+            yesbegin = true;
+            if (s.substr(4*k, 4) != SOFT)
+            {
+                yesbegin = false;
+                break;
+            }
+            k++;
+        }
+        return yesbegin;
+    }
+    catch (std::exception& e)
+    {
+        return false;
+    }
 }

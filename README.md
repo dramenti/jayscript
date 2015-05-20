@@ -28,6 +28,26 @@ PRINT [string]
 
 INPUT [variable_name] NOTE: as of now, strings typed in need to be in quotes because INPUT evaluates the expression entered
 
+IF [condition]
+
+    do stuff (indentation dependent!)
+
+optional:
+
+ELSIF [condition]
+
+    do stuff
+    
+...
+
+ELSE
+
+    do stuff
+    
+END
+
+note: if-elsif-else blocks must end in END!
+
 Example code:
 
 SET x = 50    
@@ -41,13 +61,8 @@ When run, the output is:
 
 The value of y is 56
 
-Note that there are still a bunch of std::cout lines for debug, 
-so the output will include a bunch of debug stuff.
-
 
 TO DO:
-
--Implement control flow, keywords: IF, ELSE IF, WHILE, END
 
 -Implement comments
 

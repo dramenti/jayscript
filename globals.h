@@ -16,4 +16,6 @@ extern std::vector<std::string> prog_file; //the contents of the source code
 
 extern int gnest;
 
+extern int gline;
+
 #endif

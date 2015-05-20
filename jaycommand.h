@@ -1,7 +1,10 @@
 #include<string>
 #include<sstream>
+#include "jayblocks.h"
 #ifndef JAYCOMMAND_H
 #define JAYCOMMAND_H
+
+enum cmd_types {PRINT, SET, INPUT, IF, ELSIF, ELSE, END};
 
 
 void print(std::string& line);
@@ -12,15 +15,14 @@ void input(std::istringstream& line);
 
 void flow_if(std::istringstream& line);
 
-void find_command(std::string& command, std::istringstream& rest_of_line);
+void execute_block(CodeBlock cb, int tabskip);
 
-void run_line(std::istringstream& full_line);
+void execute_flow_if(If_Flow IfL);
 
-//reads from the source file, until no longer indented
-//reads and stores into block, lines that begin with:
-//4 spaces OR \t aka tabspace
-//when storing, this space is deleted!
-//but not ALL initial space to allow for nested control flow
-/*void store_block(CodeBlock& cb);*/
+cmd_types find_command(std::string& command, std::istringstream& rest_of_line);
+
+cmd_types run_line(std::istringstream& full_line, int tabskip);
+
+int look_for_end_of_block(int start_line, int nst_lvl);
 
 #endif

@@ -12,6 +12,7 @@ std::map<std::string, std::string> var_ints;
 std::map<std::string, std::string> var_strings;
 std::map<std::string, char> opMapping;
 std::vector<std::string> prog_file;
+int gline;
 int gnest = 0;
 
 void init_globals()
@@ -57,19 +58,19 @@ int main(int argc, char* argv[]) //command line arguments. argv is arguments
         prog_file.push_back(each_line);
     }
     
-    
+    pf_stream.close();
     std::istringstream full_line;
     
     
     /*Read from file, line by line*/
-    for (int i = 0; i < prog_file.size(); i++)
+    for (gline = 0; gline < prog_file.size(); gline++)
     {
-        each_line = prog_file.at(i);
+        each_line = prog_file.at(gline);
         full_line.str(each_line);
         try
         {
             //std::cout << "In main, will run line: "<< each_line << std::endl;
-            run_line(full_line); //execute the line
+            run_line(full_line, 0); //execute the line, no nesting so 0
         }
         catch (std::exception& e)
         {

@@ -30,4 +30,6 @@ bool is_Valid_Identifier(std::string id);
 
 void trim_tail(std::string& s);
 
+bool begins_with_tab(const std::string& s, int lvl);
+
 #endif

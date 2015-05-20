@@ -1,0 +1,27 @@
+SET x = 6
+IF x < 3
+    PRINT "x is less than 3"
+ELSIF x == 5
+    PRINT "x is 5"
+ELSIF x == 6
+    PRINT "x is 6"
+ELSE
+    PRINT "lolzers"
+END
+SET y = 3
+IF y == 3
+    PRINT "YES y IS 3"
+ELSE
+    PRINT "Naww, not 3"
+END
+SET z = 3
+IF z < 10
+    PRINT "z is less than 10 but is it equal to 5?"
+    IF z == 5
+        PRINT "It's 5!"
+    ELSE
+        PRINT "It is not 5"
+    END
+ELSE
+    PRINT "z is too big!"
+END
