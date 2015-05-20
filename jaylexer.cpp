@@ -18,7 +18,7 @@ std::deque<std::string> lex (std::string& line)
     
     std::string next_token;
     bool hyphen_is_negative = true;
-    int i = 0;
+    unsigned i = 0;
     //std::cout << "In lex, about to tokenize integer expression: " << line << std::endl;
     while(i < line.size())
     {

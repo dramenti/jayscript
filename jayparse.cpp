@@ -83,7 +83,7 @@ std::string eval_expression<std::string>(std::deque<std::string> expression)
     std::string raw_str = expression.at(0);
     std::string processed_expression = "";
     std::string format_var;
-    for (int i = 1; i < raw_str.size()-1; i++)
+    for (unsigned i = 1; i < raw_str.size()-1; i++)
     {
         if (raw_str[i] == '%')
         {

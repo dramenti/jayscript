@@ -1,6 +1,8 @@
 #include "globals.h"
 #include<string>
 #include<exception>
+#include<cstdlib>
+#include<iostream>
 #include "jaytools.h"
 #define ASCII_SHIFT 48
 
@@ -77,6 +79,7 @@ std::string convert_int_to_string(int num)
         divider *= 10;
     }
     divider /= 10; //when while loop breaks, divider will be too big, go back to last "good run"
+    //std::cout << "in convert_int_to_string, number of digits, or divider value is " << divider << std::endl;
     int next_digit;
     //digit stripper
     while (divider >= 1)
@@ -86,6 +89,7 @@ std::string convert_int_to_string(int num)
         num = num-divider*next_digit;
         divider /= 10;
     }
+    //std::cout << "in convert_int_to_string, final string representation is " << str_int << std::endl;
     return str_int;
 }
 
@@ -154,7 +158,7 @@ bool is_IdentifierChar(char c)
 
 bool is_Valid_Identifier(std::string id)
 {
-    int ids = id.size(); //size of potential identifier
+    //int ids = id.size(); //size of potential identifier
     int c1 = (int)(id.at(0)); //used to check if starts with digit
     //if c1 is a digit, return false: cannot start with a digit
     if (in_int_range(c1)) //if is int, return false
@@ -162,7 +166,7 @@ bool is_Valid_Identifier(std::string id)
         return false;
     }
     //else, check all of chars... if all chars are id chars, return true
-    int index = 0;
+    unsigned index = 0;
     while (index < id.size())
     {
         if (!is_IdentifierChar(id.at(index)))

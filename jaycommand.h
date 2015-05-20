@@ -23,6 +23,6 @@ cmd_types find_command(std::string& command, std::istringstream& rest_of_line);
 
 cmd_types run_line(std::istringstream& full_line, int tabskip);
 
-int look_for_end_of_block(int start_line, int nst_lvl);
+unsigned look_for_end_of_block(unsigned start_line, int nst_lvl);
 
 #endif

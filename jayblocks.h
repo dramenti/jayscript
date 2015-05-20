@@ -5,8 +5,8 @@
 
 struct CodeBlock
 {
-    int begin_line;
-    int end_line;
+    unsigned begin_line;
+    unsigned end_line;
     bool exists;
 };
 
@@ -21,7 +21,7 @@ struct If_Flow
     
     CodeBlock Else_Block;
     
-    int line_of_END;
+    unsigned line_of_END;
 };
 
 

@@ -63,7 +63,9 @@ void input(std::istringstream& line)
     
     std::string input_line;
     std::getline(std::cin, input_line);
+    //std::cout << "in input just inputted: " << input_line << std::endl;
     result to_input = do_eval(lex(input_line));
+    //std::cout << "in input computed result to_input of type: " << to_input.type << std::endl;
     if (to_input.type == 0) //INTEGER
     {
         var_ints[identifier] = convert_int_to_string(to_input.integer);
@@ -156,7 +158,7 @@ void execute_flow_if(If_Flow IfL)
     else
     {
         //now try each ELSIF until one works
-        for (int e = 0; e < IfL.Elsif_Blocks.size(); e++)
+        for (unsigned e = 0; e < IfL.Elsif_Blocks.size(); e++)
         {
             if (do_eval(lex(IfL.EIB_exps.at(e))).integer)
             {
@@ -187,9 +189,9 @@ void execute_block(CodeBlock cb, int tabskip)
 }
 
 //looks for the index beyond last line of the block, given a starting line number and nest level of the block
-int look_for_end_of_block(int start_line, int nst_lvl)
+unsigned look_for_end_of_block(unsigned start_line, int nst_lvl)
 {
-    int end_line = start_line; //this will contain the answer at the end
+    unsigned end_line = start_line; //this will contain the answer at the end
     //pseudocode:
     //while line begins with (nst_lvl) tabs or softabs, increment end_line;
     while (begins_with_tab(prog_file.at(end_line), nst_lvl))
@@ -242,6 +244,7 @@ cmd_types find_command(std::string& command, std::istringstream& rest_of_line)
     {
         std::cout << "Command: " << command << " not recognized!" << std::endl;
     }
+    return END;
 }
 
 //full_line is a full line, such as PRINT "Hello World!" 

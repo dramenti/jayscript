@@ -1,0 +1,33 @@
+PRINT "Welcome to TEST_SOURCE6.jays! Enjoy the journey."
+PRINT ""
+PRINT "You are in a dungeon, inside room with 3 doors, marked 1 2 3. Which do you enter?"
+INPUT firstchoice
+IF firstchoice == 1
+    PRINT "You find a rack of weapons. Take the sword (1) or the bow (2)?"
+    INPUT finalchoice
+    PRINT "An undead spirit attacks you and..."
+    IF finalchoice == 1
+        PRINT "your sword does nothing against the spirit and you die!"
+    ELSIF finalchoice == 2
+        PRINT "your arrows are made of Silvermite, so you are able to slay the spirit! You win!"
+    ELSE
+        PRINT "DON'T ENTER WRONG NUMBERS, ABORITNG PROGRAM"
+    END
+ELSIF firstchoice == 2
+    PRINT "You selected the magic number. You win!"
+ELSIF firstchoice == 3
+    PRINT "You enter a room full of gold. Do you take the gold (1) or leave it (2)?"
+    INPUT finalchoice
+    IF finalchoice == 1
+        PRINT "You approach the pile of gold and greedily touch it, but realize..."
+        PRINT "The gold seems to be in the shape of humans! Very realistic statues. Wait a minute..."
+        PRINT "Your hands start solidifying... no, you're turning into gold! Now your arms, legs..."
+        PRINT "You die. You are now nothing more than an inanimate golden statue."
+    ELSIF finalchoice==2
+        PRINT "Smart choice, the gold was cursed! You win!"
+    ELSE
+        PRINT "DON'T ENTER WRONG NUMBERS, ABORTING PROGRAM"
+    END
+ELSE
+    PRINT "NOT VALID CHOICE, ABORT PROGRAM"
+END

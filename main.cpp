@@ -12,7 +12,7 @@ std::map<std::string, std::string> var_ints;
 std::map<std::string, std::string> var_strings;
 std::map<std::string, char> opMapping;
 std::vector<std::string> prog_file;
-int gline;
+unsigned gline;
 int gnest = 0;
 
 void init_globals()
