@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -g
+CXXFLAGS := -g -Wall
 
 OBJ := jaycommand.o jaylexer.o jayparse.o jaytools.o main.o
 

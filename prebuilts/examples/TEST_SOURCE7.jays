@@ -1,0 +1,20 @@
+PRINT "yeee we in test source 7!!!"
+PRINT ""
+SET prompt = 0
+SET password = 42
+WHILE prompt != password
+    PRINT "Enter in an integer, the password: "
+    INPUT prompt
+END
+PRINT "Yep, it was 42! Ya got me"
+PRINT "Now for nested while:"
+SET i = 0
+SET dim = 3
+WHILE i < dim
+    SET j = 0
+    WHILE j < dim
+        PRINT j
+        SET j = j+1
+    END
+    SET i = i+1
+END

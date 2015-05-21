@@ -77,6 +77,49 @@ void input(std::istringstream& line)
     }
 }
 
+void flow_while(std::istringstream& line)
+{
+    //basically follow flow_if
+    gnest++;
+    While_Flow wf;
+    wf.nestlevel = gnest;
+    gline++;
+    wf.While_Block.begin_line = gline;
+    std::getline(line, wf.WB_exp);
+    gline = look_for_end_of_block(gline, wf.nestlevel);
+    wf.While_Block.end_line = gline;
+    
+    
+    line.str(prog_file[gline]);
+    
+    //TODO: replace having to run the whole line with just checking for the command to avoid problems
+    //ie have a get command from line function, maybe make run_line use that
+    cmd_types cm = run_line(line, wf.nestlevel-1);
+    
+    if (cm != END)
+    {
+        std::cout << "ERROR: cm was not END, but: " << cm << std::endl;
+        exit(1);
+    }
+    
+    wf.line_of_END = gline;
+    
+    execute_flow_while(wf);
+    
+    gnest--;
+}
+
+void execute_flow_while(While_Flow wf)
+{
+    //continue working on this
+    //the while loop
+    while(do_eval(lex(wf.WB_exp)).integer)
+    {
+        execute_block(wf.While_Block, wf.nestlevel);
+    }
+    gline = wf.line_of_END;
+}
+
 
 void flow_if(std::istringstream& line)
 {
@@ -135,7 +178,7 @@ void flow_if(std::istringstream& line)
     }
     if (cm != END)
     {
-        std::cout << "cm was not END, but: " << cm << std::endl;
+        std::cout << "ERROR: cm was not END, but: " << cm << std::endl;
         exit(1);
     }
     f1.line_of_END = gline;
@@ -239,6 +282,11 @@ cmd_types find_command(std::string& command, std::istringstream& rest_of_line)
     else if (command == "END")
     {
         return END;
+    }
+    else if (command == "WHILE")
+    {
+        flow_while(rest_of_line);
+        return WHILE;
     }
     else
     {

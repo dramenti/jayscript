@@ -4,7 +4,7 @@
 #ifndef JAYCOMMAND_H
 #define JAYCOMMAND_H
 
-enum cmd_types {PRINT, SET, INPUT, IF, ELSIF, ELSE, END};
+enum cmd_types {PRINT, SET, INPUT, IF, ELSIF, ELSE, END, WHILE};
 
 
 void print(std::string& line);
@@ -15,9 +15,13 @@ void input(std::istringstream& line);
 
 void flow_if(std::istringstream& line);
 
+void flow_while(std::istringstream& line);
+
 void execute_block(CodeBlock cb, int tabskip);
 
 void execute_flow_if(If_Flow IfL);
+
+void execute_flow_while(While_Flow wf);
 
 cmd_types find_command(std::string& command, std::istringstream& rest_of_line);
 

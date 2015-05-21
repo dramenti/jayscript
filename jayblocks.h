@@ -24,6 +24,14 @@ struct If_Flow
     unsigned line_of_END;
 };
 
+struct While_Flow
+{
+    int nestlevel;
+    CodeBlock While_Block;
+    std::string WB_exp;
+    
+    unsigned line_of_END;
+};
 
 
 
