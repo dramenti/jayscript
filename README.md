@@ -1,5 +1,7 @@
--------------------------PROJECT             JAYSCRIPT------------------------------
+-------------------------PROJECT             JAYSCRIPT------------------
+
 -------------------------Dramenti (Jayanth Sundaresan)------------------
+
 So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
 Note that this is a personal project, intended as a learning experience for myself, not for practical use!
