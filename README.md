@@ -1,3 +1,5 @@
+-------------------------PROJECT             JAYSCRIPT------------------------------
+-------------------------Dramenti (Jayanth Sundaresan)------------------
 So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
 Note that this is a personal project, intended as a learning experience for myself, not for practical use!
@@ -46,6 +48,10 @@ ELSE
 END
 
 note: if-elsif-else blocks must end in END!
+
+WHILE [condition]
+    do stuff
+END
 
 Example code:
 
