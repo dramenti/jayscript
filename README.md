@@ -1,6 +1,6 @@
 #The Jayscript Programming Language
 
-##by Dramenti (Jayanth Sundaresan)
+####by Dramenti (Jayanth Sundaresan)
 
 So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
