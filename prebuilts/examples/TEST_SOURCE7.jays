@@ -8,11 +8,11 @@ WHILE prompt != password
 END
 PRINT "Yep, it was 42! Ya got me"
 PRINT "Now for nested while:"
-SET i = 0
+SET i = 1
 SET dim = 3
-WHILE i < dim
-    SET j = 0
-    WHILE j < dim
+WHILE i <= dim
+    SET j = 1
+    WHILE j <= dim
         PRINT j
         SET j = j+1
     END

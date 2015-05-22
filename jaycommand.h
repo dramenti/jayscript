@@ -4,7 +4,7 @@
 #ifndef JAYCOMMAND_H
 #define JAYCOMMAND_H
 
-enum cmd_types {PRINT, SET, INPUT, IF, ELSIF, ELSE, END, WHILE};
+enum cmd_types {PRINT, SET, INPUT, IF, ELSIF, ELSE, END, WHILE, NONE};
 
 
 void print(std::string& line);

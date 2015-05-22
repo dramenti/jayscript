@@ -1,6 +1,7 @@
 #include<string>
 #include<deque>
 #include<iostream>
+#include<cstdlib>
 #include "globals.h"
 #include "jaytools.h"
 #include "jaylexer.h"
@@ -14,6 +15,11 @@ std::deque<std::string> lex (std::string& line)
     {
         expression.push_back(line);
         return expression;
+    }
+    else if (line.at(0) == '"')
+    {
+        std::cout << "Error: missing endquote on line " << (gline+1) << std::endl;
+        exit(1);
     }
     
     std::string next_token;
@@ -87,6 +93,11 @@ std::deque<std::string> lex (std::string& line)
             {
                 hyphen_is_negative = false;
             }
+        }
+        else
+        {
+            std::cout << "Error: token not recognized on line " << (gline+1) << std::endl;
+            exit(1);
         }
         //std::cout << "In lex, next_token is: " << next_token << std::endl;
         expression.push_back(next_token);
