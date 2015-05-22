@@ -1,6 +1,6 @@
--------------------------PROJECT JAYSCRIPT------------------------------
+#The Jayscript Programming Language
 
--------------------------Dramenti (Jayanth Sundaresan)------------------
+##by Dramenti (Jayanth Sundaresan)
 
 So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
@@ -52,6 +52,7 @@ END
 note: if-elsif-else blocks must end in END!
 
 WHILE [condition]
+
     do stuff
 END
 
