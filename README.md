@@ -4,66 +4,58 @@
 
 So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
-Note that this is a personal project, intended as a learning experience for myself, not for practical use!
-Though perhaps someday in the future this will become more practical.
-
 So far, it can: 
-tokenize expressions (jaylexer.cpp)
-
-parse basic strings and evaluate arithmetic expressions (jayparse.cpp)
-
-understand a limited number of commands (jaycommand.cpp)
+*tokenize expressions (`jaylexer.cpp`)
+*parse basic strings and evaluate arithmetic expressions (`jayparse.cpp`)
+*understand a limited number of commands (`jaycommand.cpp`)
 
 
-So far, only strings and integers are supported as data types.
+So far, only strings and integers are supported as data types. String interpolation is supported:
+to insert variable into string, surround variable name with `%` signs.
+For example, to insert the value of a variable `num` into a string, the string would look like
+`"The value is %num%"`
 
 Also, order of operations is not supported. You have to use parentheses for now.
 
-For example, you can't do x < 3 AND y < 5, as of now, you have to do 
+For example, you can't do `x < 3 AND y < 5`, as of now, you have to do 
 
-(x < 3) AND (y < 5)
+`(x < 3) AND (y < 5)`
 
 Commands supported as of now, with syntax:
 
-SET [variable_name] = [value] where value can be either an integer or string
-
-PRINT [string]
-
-INPUT [variable_name] NOTE: as of now, strings typed in need to be in quotes because INPUT evaluates the expression entered
-
-IF [condition]
+*`SET [variable_name] = [value]` where value can be either an integer or string
+*`PRINT [string]`
+*`INPUT [variable_name]` NOTE: as of now, strings typed in need to be in quotes because INPUT evaluates the expression entered
+*`IF [condition]`
 
     do stuff (indentation dependent!)
 
 optional:
 
-ELSIF [condition]
+`ELSIF [condition]`
 
     do stuff
     
 ...
 
-ELSE
+`ELSE`
 
     do stuff
     
-END
+`END`
 
 note: if-elsif-else blocks must end in END!
 
-WHILE [condition]
+`WHILE [condition]`
 
     do stuff
-END
+`END`
 
 Example code:
 
-SET x = 50    
-
-SET y = x+(3*2)
-
-PRINT "The value of y is %y%"
-
+    SET x = 50    
+    SET y = x+(3*2)
+    PRINT "The value of y is %y%"
 
 When run, the output is:
 
@@ -72,12 +64,14 @@ The value of y is 56
 
 TO DO:
 
--Implement comments
+*Refactor (code definitely needs to be cleaned up)
 
--Implement functions, keyword: FUNCTION
+*Implement comments
 
--Implement arrays
+*Implement functions, keyword: FUNCTION. or maybe DEF.
 
--Implement order of operations
+*Implement arrays
+
+*Implement order of operations
 
 
