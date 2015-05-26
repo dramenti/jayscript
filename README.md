@@ -5,9 +5,9 @@
 So basically this is Jayscript, an interpreted scripting language I made. The interpreter is written in C++.
 
 So far, it can: 
-*tokenize expressions (`jaylexer.cpp`)
-*parse basic strings and evaluate arithmetic expressions (`jayparse.cpp`)
-*understand a limited number of commands (`jaycommand.cpp`)
+* tokenize expressions (`jaylexer.cpp`)
+* parse basic strings and evaluate arithmetic expressions (`jayparse.cpp`)
+* understand a limited number of commands (`jaycommand.cpp`)
 
 
 So far, only strings and integers are supported as data types. String interpolation is supported:
@@ -23,10 +23,10 @@ For example, you can't do `x < 3 AND y < 5`, as of now, you have to do
 
 Commands supported as of now, with syntax:
 
-*`SET [variable_name] = [value]` where value can be either an integer or string
-*`PRINT [string]`
-*`INPUT [variable_name]` NOTE: as of now, strings typed in need to be in quotes because INPUT evaluates the expression entered
-*`IF [condition]`
+* `SET [variable_name] = [value]` where value can be either an integer or string
+* `PRINT [string]`
+* `INPUT [variable_name]` NOTE: as of now, strings typed in need to be in quotes because INPUT evaluates the expression entered
+* `IF [condition]`
 
     do stuff (indentation dependent!)
 
@@ -46,7 +46,7 @@ optional:
 
 note: if-elsif-else blocks must end in END!
 
-`WHILE [condition]`
+* `WHILE [condition]`
 
     do stuff
 `END`
@@ -64,14 +64,14 @@ The value of y is 56
 
 TO DO:
 
-*Refactor (code definitely needs to be cleaned up)
+* Refactor (code definitely needs to be cleaned up)
 
-*Implement comments
+* Implement comments
 
-*Implement functions, keyword: FUNCTION. or maybe DEF.
+* Implement functions, keyword: FUNCTION. or maybe DEF.
 
-*Implement arrays
+* Implement arrays
 
-*Implement order of operations
+* Implement order of operations
 
 
