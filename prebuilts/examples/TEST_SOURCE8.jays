@@ -2,3 +2,11 @@ PRINT "Hello"
 
 PRINT "Such doge"
 
+SET x = 3
+
+WHILE x < 10
+    IF x == 6
+        PRINT "%x% equals 6"
+    END
+    SET x = x+1
+END
