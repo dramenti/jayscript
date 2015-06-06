@@ -7,6 +7,7 @@
 #include<exception>
 #include "globals.h"
 #include "jaycommand.h"
+#include "operators.h"
 
 std::map<std::string, std::string> var_ints;
 std::map<std::string, std::string> var_strings;
@@ -22,20 +23,8 @@ void init_globals()
     var_ints["TRUE"] = "1";
     var_ints["FALSE"] = "0";
     
-    //init operator mapping for switch statement in jayparse
-    opMapping["+"] = '+';
-    opMapping["-"] = '-';
-    opMapping["/"] = '/';
-    opMapping["*"] = '*';
-    opMapping["%"] = '%';
-    opMapping["<"] = '<';
-    opMapping[">"] = '>';
-    opMapping["=="] = '=';
-    opMapping["<="] = ']';
-    opMapping[">="] = '[';
-    opMapping["AND"] = '&';
-    opMapping["OR"] = '|';
-    opMapping["!="] = ',';
+    //initialize the operator map
+    initialize_operator_map();
 }
 
 int main(int argc, char* argv[]) //command line arguments. argv is arguments
