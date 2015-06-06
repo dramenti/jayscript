@@ -1,7 +1,7 @@
 CXX := g++
 CXXFLAGS := -g -Wall
 
-OBJ := jaycommand.o jaylexer.o jayparse.o jaytools.o main.o
+OBJ := jaycommand.o jaylexer.o operators.o jayparse.o jaytools.o main.o
 
 jayrun: $(OBJ)
 	$(CXX) $(CXXFLAGS) $^ -o $@
