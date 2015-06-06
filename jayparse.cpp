@@ -1,5 +1,4 @@
 #include<deque>
-#include<string>
 #include<iostream>
 #include "globals.h"
 #include "jaytools.h"
@@ -19,50 +18,7 @@ will return the quantity a+b
 */
 int operate(int a, int b, std::string op)
 {
-    char opchar = opMapping[op];
-    switch (opchar)
-    {
-        case '+':
-            return (a+b);
-            break;
-        case '-':
-            return (a-b);
-            break;
-        case '/':
-            return (a/b);
-            break;
-        case '*':
-            return (a*b);
-            break;
-        case '%':
-            return (a%b);
-            break;
-        case '<':
-            return (a<b);
-            break;
-        case ']': // <=
-            return (a<=b);
-        case '>':
-            return (a>b);
-            break;
-        case '[': //>= 
-            return (a>=b);
-            break;
-        case '=': //==
-            return (a==b);
-            break;
-        case ',': //!=
-            return (a!=b);
-            break;
-        case '&': //AND
-            return (a&&b);
-            break;
-        case '|': //OR
-            return (a||b);
-            break;
-        default:
-            return 0;
-    }
+    return function_map[op](a, b);
 }
 
 template<class T>
