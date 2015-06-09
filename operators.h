@@ -1,5 +1,5 @@
 #include<map>
-
+#include<string>
 /*This contains all the operators as functions, as well as 
 the operator map that maps strings to their corresponding
 function, like '+' to the 'add' function*/
@@ -8,7 +8,7 @@ function, like '+' to the 'add' function*/
 
 typedef int binary_infix_function(int a, int b);
 typedef std::map<std::string, binary_infix_function*> binary_fmap;
-binary_fmap function_map;
+extern binary_fmap function_map;
 
 int add (int a, int b);
 int subtract (int a, int b);
@@ -23,3 +23,5 @@ int equal_to (int a, int b);
 int not_equal_to (int a, int b);
 int and_op (int a, int b);
 int or_op (int a, int b);
+
+void initialize_operator_map();

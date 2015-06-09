@@ -60,17 +60,17 @@ int or_op (int a, int b)
 
 void initialize_operator_map()
 {
-    function_map["+"] = add;
-    function_map["-"] = subtract;
-    function_map["*"] = multiply;
-    function_map["/"] = divide;
-    function_map["%"] = modulo;
-    function_map["<"] = less_than;
-    function_map["<="] = less_than_or_equal_to;
-    function_map[">"] = greater_than;
-    function_map[">="] = greater_than_or_equal_to;
-    function_map["!="] = not_equal_to;
-    function_map["=="] = equal_to;
-    function_map["AND"] = and_op;
-    function_map["OR"] = or_op;
+    function_map["+"] = &add;
+    function_map["-"] = &subtract;
+    function_map["*"] = &multiply;
+    function_map["/"] = &divide;
+    function_map["%"] = &modulo;
+    function_map["<"] = &less_than;
+    function_map["<="] = &less_than_or_equal_to;
+    function_map[">"] = &greater_than;
+    function_map[">="] = &greater_than_or_equal_to;
+    function_map["!="] = &not_equal_to;
+    function_map["=="] = &equal_to;
+    function_map["AND"] = &and_op;
+    function_map["OR"] = &or_op;
 }
