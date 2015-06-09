@@ -3,6 +3,7 @@
 #include "globals.h"
 #include "jaytools.h"
 #include "jayparse.h"
+#include "operators.h"
 
 /*struct result
 {
@@ -19,6 +20,7 @@ will return the quantity a+b
 int operate(int a, int b, std::string op)
 {
     return function_map[op](a, b);
+    return 0; //temporary fix for invalid operator
 }
 
 template<class T>
