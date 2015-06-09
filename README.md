@@ -65,13 +65,13 @@ The value of y is 56
 TO DO:
 
 * Refactor (code definitely needs to be cleaned up)
-
 * Implement comments
-
 * Implement functions, keyword: FUNCTION. or maybe DEF.
-
 * Implement arrays
-
 * Implement order of operations
+* Implement more data types
+* Implement object-oriented features
+
+
 
 
