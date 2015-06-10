@@ -239,3 +239,16 @@ bool begins_with_tab(const std::string& s, int lvl)
         return false;
     }
 }
+
+void decomment(std::string& s)
+{
+    //removes everything after, and including, the # character
+    //in other words, # is the inline comment character
+    char comment_character = '#';
+    unsigned i = 0;
+    while (i < s.size() && s.at(i) != comment_character)
+    {
+        i++;
+    }
+    s = s.substr(0, i);
+}

@@ -1,8 +1,8 @@
-PRINT "yeee we in test source 7!!!"
-PRINT ""
+PRINT "yeee we in test source 7!!!" #an introduction
+PRINT "" #newline
 SET prompt = 0
 SET password = 42
-WHILE prompt != password
+WHILE prompt != password #runs until prompt equals the password
     PRINT "Enter in an integer, the password: "
     INPUT prompt
 END
@@ -13,7 +13,7 @@ SET dim = 3
 WHILE i <= dim
     SET j = 1
     WHILE j <= dim
-        PRINT j
+        PRINT j #should print 1,2,3,1,2,3,1,2,3
         SET j = j+1
     END
     SET i = i+1

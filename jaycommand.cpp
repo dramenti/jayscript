@@ -334,6 +334,7 @@ cmd_types run_line(std::istringstream& full_line, int tabskip)
     //std::cout << "In run_line with command: " << command << std::endl;
     //now command contains the command, like PRINT or SET
     //full_line is now left with the argument(s) of the command
+    decomment(command);
     if (command == "") return NONE; //allows for blank lines
     return find_command(command, full_line);
 }

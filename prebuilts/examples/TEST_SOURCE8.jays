@@ -1,13 +1,13 @@
-PRINT "Hello"
+PRINT "Hello" #prints the text `Hello`
 
-PRINT "Such doge"
+PRINT "Such doge" #prints the text `Such doge`
 
 SET x = 3
 
 WHILE x < 10
     IF x == 6
-        PRINT "%x% equals 6"
+        PRINT "%x% equals 6" #should print `6 equals 6`
     END
     SET x = x+1
 END
-PRINT x+x
+PRINT x+x #should print 20

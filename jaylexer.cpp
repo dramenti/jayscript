@@ -9,6 +9,7 @@ std::deque<std::string> lex (std::string& line)
 {
     //strings are single token for now
     std::deque<std::string> expression;
+    decomment(line);
     trim_tail(line);
     //for now, space after closing quote is not allowed
     if (line.at(0) == '"' && line.at(line.size()-1) == '"')

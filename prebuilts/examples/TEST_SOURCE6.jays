@@ -1,6 +1,7 @@
 PRINT "Welcome to TEST_SOURCE6.jays! Enjoy the journey."
 PRINT ""
 PRINT "You are in a dungeon, inside room with 3 doors, marked 1 2 3. Which do you enter?"
+#a text game
 INPUT firstchoice
 IF firstchoice == 1
     PRINT "You find a rack of weapons. Take the sword (1) or the bow (2)?"
