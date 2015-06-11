@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) //command line arguments. argv is arguments
     std::istringstream full_line;
     
     
-    gline = 0;
+    gline = DEFAULT_INITIAL_GLINE_VALUE;
     CodeBlock main_program_block;
     main_program_block.begin_line = gline;
     main_program_block.end_line = prog_file.size();
