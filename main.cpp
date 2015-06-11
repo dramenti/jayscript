@@ -9,6 +9,9 @@
 #include "jaycommand.h"
 #include "operators.h"
 
+#define DEFAULT_INITIAL_GLINE_VALUE 0
+#define DEFAULT_INITIAL_NESTING_LEVEL 0
+
 std::map<std::string, std::string> var_ints;
 std::map<std::string, std::string> var_strings;
 std::map<std::string, char> opMapping;
@@ -29,19 +32,16 @@ void init_globals()
 
 int main(int argc, char* argv[]) //command line arguments. argv is arguments
 {
-    init_globals();
     if (argc != 2)
     {
         std::cout << "Correct usage is: jayrun [filename]" << std::endl;
         return 0;
     }
+    init_globals();
     
     /*Open the source code*/
     std::ifstream pf_stream (argv[1]);
-    
-    
     std::string each_line;
-    
     while (std::getline(pf_stream, each_line))
     {
         prog_file.push_back(each_line);
@@ -51,7 +51,22 @@ int main(int argc, char* argv[]) //command line arguments. argv is arguments
     std::istringstream full_line;
     
     
+    gline = 0;
+    CodeBlock main_program_block;
+    main_program_block.begin_line = gline;
+    main_program_block.end_line = prog_file.size();
+    try
+    {
+        execute_block(main_program_block, DEFAULT_INITIAL_NESTING_LEVEL);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+        return 0;
+    }
+    
     /*Read from file, line by line*/
+    /* OLD CODE
     for (gline = 0; gline < prog_file.size(); gline++)
     {
         each_line = prog_file.at(gline);
@@ -66,6 +81,6 @@ int main(int argc, char* argv[]) //command line arguments. argv is arguments
             std::cout << "Error: " << e.what() << std::endl;
             return 0;
         }
-    }
+    } */
     return 0;
 }
