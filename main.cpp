@@ -3,6 +3,7 @@
 #include<iostream>
 #include<cassert>
 #include<exception>
+#include<cstring>
 #include "globals.h"
 #include "jaycommand.h"
 #include "operators.h"
@@ -38,6 +39,7 @@ int main(int argc, char* argv[]) //command line arguments. argv is arguments
     init_globals();
     
     /*Open the source code*/
+    strcat(argv[1], ".jays");
     std::ifstream pf_stream (argv[1]);
     std::string each_line;
     while (std::getline(pf_stream, each_line))
