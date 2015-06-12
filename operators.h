@@ -1,5 +1,7 @@
 #include<map>
 #include<string>
+#ifndef OPERATORS_H
+#define OPERATORS_H
 /*This contains all the operators as functions, as well as 
 the operator map that maps strings to their corresponding
 function, like '+' to the 'add' function*/
@@ -25,3 +27,4 @@ int and_op (int a, int b);
 int or_op (int a, int b);
 
 void initialize_operator_map();
+#endif
