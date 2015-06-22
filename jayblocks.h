@@ -19,6 +19,7 @@ struct If_Flow
     std::vector<CodeBlock> Elsif_Blocks;
     std::vector<std::string> EIB_exps;
     
+    bool has_else;
     CodeBlock Else_Block;
     
     unsigned line_of_END;

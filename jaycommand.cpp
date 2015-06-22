@@ -127,6 +127,7 @@ void flow_if(std::istringstream& line)
     //note: right now line contains everything after "IF" -- the expression
     //note: gline right now is the location of the IF line
     If_Flow f1; //creates a new If_Flow, will consist of If Block plus optional Elsifs
+    f1.has_else = false; //begin by assuming the If_Flow has no else block, this changes later if there is one
     f1.nestlevel = gnest;
     gline++;
     f1.If_Block.begin_line = gline;
@@ -159,6 +160,7 @@ void flow_if(std::istringstream& line)
     }
     if (cm == ELSE)
     {
+        f1.has_else = true; //there is an else, change from false to true
         //basically do everything that was done for the IF block
         //only this time there is no expression argument!! 
         //right now gline contains line of ELSE
@@ -213,7 +215,8 @@ void execute_flow_if(If_Flow IfL)
         
         //if we're here, no ELSIF worked...
         //so we're at ELSE.
-        execute_block(IfL.Else_Block, IfL.nestlevel);
+        if (IfL.has_else) execute_block(IfL.Else_Block, IfL.nestlevel);
+        //std::cout << "DEBUG: Else_Block.end_line equals: " << IfL.Else_Block.end_line << std::endl;
         gline = IfL.line_of_END;
         return;
     }
